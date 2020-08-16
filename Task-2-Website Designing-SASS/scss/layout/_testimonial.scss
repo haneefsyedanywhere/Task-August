@@ -1,0 +1,91 @@
+.testimonial{
+    background-image: linear-gradient(242deg, rgba(63, 243, 195,0.5), rgba(24, 155, 251,0.5)),url('../../images/ward.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 100%;
+    height: 617px;
+    padding-top: 50px;
+    h2{
+        text-align: center;
+        margin-bottom: 50px;
+        color: $white;
+    }
+    .container{
+        position: relative;
+    }
+    .prev_icon,.next_icon{
+        position: absolute;
+        top: 60%;
+        @include mQ(600px){
+            top: 50%;
+        }
+        cursor: pointer;
+        path{
+            fill: white;
+        }
+    }
+    .disabled{
+        cursor: initial;
+        path{
+            fill: #EBEBE4;
+        }
+    }
+    
+    .prev_icon{
+        left: 10px;
+    }
+    .next_icon{
+        right: 10px;
+    }   
+    .testimonial__slider{
+        width: 80%;
+        overflow: hidden;
+        margin:0 auto;
+    }
+    
+    .testimonial__slider__container{
+        width: 100%;
+        transition: margin 1s ease;
+    }    
+}
+
+.item{
+    color: $secondary;
+    float: left;
+    border-radius: 5px;
+    img{display: block;}
+    box-shadow: 0 15px 22px 0 rgba(0, 0, 0, 0.41);
+    .item__content{
+        padding: 12px;
+        background-color: $white;
+        &::after{
+            content: "";
+            clear: both;
+            display: table;
+        }
+    }
+    p{
+        font-size: 13px;
+        letter-spacing: 0.26px;
+        opacity: 0.54;
+        margin: 10px 0;
+        max-height: 45px;
+        overflow: hidden;
+        position: relative;
+        &::before{
+            content: "...";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    }
+    span,a{
+        font-size: 14px;
+        letter-spacing: 0.28px;
+    }
+    a{
+        float: right;
+        color: #13ba8e;
+    }
+}
+

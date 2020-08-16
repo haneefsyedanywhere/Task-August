@@ -1,0 +1,20 @@
+button{
+    margin: 0;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    padding: 0px;
+}
+
+.button_primary{
+    @extend button;
+    background-color: $primary;
+    &:hover{
+        background-color: $secondary;
+    }
+}
+.button_secondary{
+    @extend button;
+    background-color: $white;
+    padding: 20px 30px;
+}

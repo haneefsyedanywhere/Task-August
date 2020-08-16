@@ -1,0 +1,69 @@
+header{
+    color: $white;
+    padding: 15px 0px 0 0px;
+    width: 100%;
+    nav{display: none;}
+    position: fixed;
+    top:0;
+    z-index: 1;
+    .container{position: relative;}
+    .icon{
+        position: fixed;
+        right: 15px;
+        top: 32px;
+    }
+    .mobile__nav{
+        display: block;
+        margin: 0 10px;
+        background-color: $secondary;
+    }
+    @include mQ(980px){
+        position: fixed;
+        width: 100%;
+        top:0;
+        padding: 15px 0 0 51px;
+        .icon{display: none;}
+        nav{
+            display: block;
+            position: absolute;
+            top: 15px;
+            right: 45px;
+        }
+        nav a{
+            display: inline;
+        }
+    }
+}
+
+.brand{
+    .brand__logo{
+        margin-left: 15px;
+    }
+    .brand__name{
+        font-family: Linotte;
+        font-size: 34px;
+        letter-spacing: -0.54px;
+        position: relative;
+        top:-22px;
+        padding: 14px 16px;
+    }
+}
+
+nav{
+    font-family: Roboto-Medium;
+    font-size: 25px;
+    a{
+        display: block;
+        padding: 14px 16px;
+        border: solid 2.5px transparent;
+        border-radius: 5px;
+        &:hover{
+            border-radius: 1px;
+            border-color: $white;
+        }
+    }
+}
+
+.scroll__nav{
+    background-color: $primary;
+}

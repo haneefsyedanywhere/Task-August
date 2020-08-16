@@ -1,0 +1,98 @@
+.launch{
+    width: 100%;
+    background-image: linear-gradient(241deg, #3ff3c3, #189bfb),url('../images/apple-i-phone-7-silver.jpg');
+    padding:50px 0 0 0;
+    position: relative;
+    .container{
+        @include mQ(768px){
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    }
+    .launch_img{
+        width: 300px;
+        margin: 0 auto;
+        img{
+            display: block;
+        }
+        @include mQ(768px){
+            margin: 0 0 0 0px;
+        }
+    }
+    .launch__content{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%,0);
+        top:180px;
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        @include mQ(768px){
+            position: static;
+            width: 400px;
+            transform: none;
+            text-align:left;
+            margin: 0;
+        }
+        @include mQ(980px){
+            width: 500px;
+        }
+    }
+}
+
+.launch__content{
+    .launch__content__img{
+        img{
+            display: block;
+            margin: 15px auto;
+            @include mQ(768px){
+                display: inline-block;
+                margin: 0 35px 0 0;
+            }
+            @include mQ(768px){
+                margin: 21px 0;
+            }
+        }
+    }
+    form{
+        @include mQ(768px){
+        border-radius: 3px;
+        box-shadow: 0 0 8px 0 rgba(177, 177, 177, 0.5);
+        border: solid 1px $white;
+        display: inline-block;
+        }
+        input{
+            padding:14px 30px 16px 20px;
+            border-radius: 0;
+            outline: 0;
+            border: solid 1px $white;
+            background-color: transparent;
+            color: $white;
+            font-size: 16px;
+            &::placeholder{
+                color: $white;
+            }
+            @include mQ(768px){
+                border: none;
+            }
+            @include mQ(980px){
+                width: 290px;
+            }
+        }
+        button{
+            font-size: 14px;
+            font-weight: bold;
+            color: $tertiary;
+            background-color: $white;
+            margin-top: 15px;
+            &:hover{
+                color: $white;
+                background-color: $tertiary;
+            }
+            @include mQ(768px){
+                margin-top: 0;
+            }
+        }
+    }
+}

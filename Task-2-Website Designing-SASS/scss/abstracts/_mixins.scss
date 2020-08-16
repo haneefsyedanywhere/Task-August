@@ -1,0 +1,17 @@
+
+
+//grid system of the layout
+@mixin grid($classname) {
+    @for $i from 1 through 12{
+        #{$classname}#{$i}{
+            flex:0 0 100% / 12 * $i;
+        }
+    }
+}
+
+//media query
+@mixin  mQ($min-width){
+    @media screen and (min-width:$min-width){
+        @content;
+    }   
+}

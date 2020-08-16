@@ -1,0 +1,29 @@
+.howItWorks{
+    color: $secondary;
+    padding: 0 15px;
+    h2{
+        text-align: center;
+        margin: 50px 0;
+    }
+    .row{
+        justify-content: space-evenly;
+    }
+    @include mQ(768px){
+        padding: 0 0 70px 0;
+    }
+}
+
+.howItWorks__content{
+    text-align: center;
+    margin-bottom: 50px;
+    h3{
+        margin: 35px auto;
+    }
+    p{
+        font-size: 20px;
+    }
+    @include mQ(768px){
+        margin-bottom: 0;
+    }
+
+}
