@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown__menu {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+.dropdown svg{
+    position: relative;
+    top: 5px;
+}
+.dropdown__content{
+  display: none;
+  background-color: #f9f9f9;
+  list-style-type:none;
+  padding:0;
+  text-align:center;
+  margin:0;
+}
+
+.dropdown__content li {
+  color: black;
+  padding: 5px 0;
+  margin:0;
+  text-decoration: none;
+  display: block;
+  cursor:pointer;
+}
+
+.dropdown__content li:hover {background-color: #f1f1f1}
+
+
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <input type="text" class="dropdown__menu" placeholder="value">
+        <svg   onclick="showDropDown(this)" x="0px" y="0px"
+	    viewBox="0 0 493.258 493.258" style="enable-background:new 0 0 493.258 493.258;" xml:space="preserve" width="20" height="20">
+            <g id="XMLID_621_">
+            <path id="XMLID_623_" d="M131.564,219.258h230.13c9.314,0,17.857-5.16,22.203-13.389c4.34-8.246,3.769-18.193-1.494-25.895
+                L265.92,9.772C261.75,3.68,254.846,0.033,247.461,0c-7.377-0.018-14.303,3.584-18.507,9.658L110.935,179.863
+                c-5.319,7.668-5.938,17.664-1.607,25.941C113.659,214.067,122.225,219.258,131.564,219.258z"/>
+            <path id="XMLID_622_" d="M361.694,273.998h-230.13c-9.339,0-17.905,5.193-22.236,13.455c-4.331,8.277-3.711,18.273,1.607,25.939
+                l118.019,170.205c4.204,6.074,11.13,9.676,18.507,9.66c7.385-0.031,14.289-3.682,18.459-9.772l116.483-170.205
+                c5.263-7.699,5.834-17.648,1.494-25.895C379.551,279.158,371.008,273.998,361.694,273.998z"/>
+            </g>
+        </svg>
+
+        <ul class="dropdown__content">
+        <li onclick="selectOption(0)">Select None</li>
+        <li onclick="selectOption(1)">America</li>
+        <li onclick="selectOption(2)">India</li>
+        <li onclick="selectOption(3)">Kuwait</li>
+        <li onclick="selectOption(4)">Turkey</li>
+        <li onclick="selectOption(5)">Yemen</li>
+        <li onclick="selectOption(6)">Saudi</li>
+        <li onclick="selectOption(7)">Oman</li>
+        <li onclick="selectOption(8)">Iran</li>
+        <li onclick="selectOption(9)">Iraq</li>
+        <li onclick="selectOption(10)">Germany</li>        
+
+    </div>
+
+<script>
+    const dropdowninput = document.querySelector('.dropdown__menu');
+    const ul=document.querySelector(
+    '.dropdown__content');
+    const options = ul.children;
+
+    function showDropDown(){
+        if(ul.style.display!="block")
+        ul.style.display="block";
+        else
+        ul.style.display="none";
+    }
+
+    function selectOption(num){
+        dropdowninput.value="";
+        dropdowninput.value=options[num].innerHTML;
+        ul.style.display="none";
+    }
+    
+    dropdowninput.addEventListener('input',filterFunction); 
+    function filterFunction() {
+        var filter = dropdowninput.value.toUpperCase();
+        ul.style.display="block";
+        if(filter.length==0){
+            ul.style.display="none";
+        }
+        for (i = 0; i < options.length; i++) {
+            txtValue = options[i].innerHTML;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                options[i].style.display = "";
+            } else {
+                options[i].style.display = "none";
+            }
+        }
+    }
+    // input.addEventListener('blur',()=>{
+    //     ul.style.display="none";
+    // })
+</script>
+</body>
+</html>
+
+const inputs = document.querySelectorAll('input');
+
+const patterns ={
+  username : /^[a-z\d]{3,20}$/i,
+  email : /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
+  password : /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/,
+  telephone : /^\d{10}$/
+};
+
+function validate(field,regex){
+
+  if(regex.test(field.value)){
+    field.className="valid";
+  }
+  else{
+    field.className="invalid";
+  }
+
+}
+
+inputs.forEach((input)=>{
+  input.addEventListener('keyup',(e)=>{
+    validate(e.target,patterns[e.target.attributes.name.value]);
+  })
+})
